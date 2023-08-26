@@ -18,7 +18,10 @@ function fetch_param()
     $pstr = "";
     foreach($params as $k => $v)
     {
-        $pstr .= $k . "=" . $v;
+        $pstr .= $k;
+        
+        if ($v) 
+            $pstr .= "=" . $v;
     }
     return $pstr;
 }
