@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 
 /*
@@ -13,12 +14,13 @@ $config = "";
 
 function fetch_param()
 {
-    $keys = array_keys($_GET);
-    $p = "";
-    if (isset($keys[0]))
-        $p = $keys[0];
-
-    return $p;
+    $params = $_GET;
+    $pstr = "";
+    foreach($params as $k => $v)
+    {
+        $pstr .= $k . "=" . $v;
+    }
+    return $pstr;
 }
 
 function fetch_json($path)
@@ -149,8 +151,7 @@ if($param)
     forward_to_random_instance($config, $param);
 
 ?>
-<html>
-
+<html lang="en">
 <head>
   <title>Tzeentch</title>
   <style>
@@ -187,7 +188,6 @@ if($param)
     }
   </style>
 </head>
-
 <body>
     <div id="main">
         <div id="header">
