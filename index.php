@@ -116,7 +116,7 @@ function print_frontpage($config)
     {
         $service = strtolower($service);
 
-        echo "<li><a href=\"?" . $service . "\">" . $service . "</a></li>\n";
+        echo "<li><a href=\"?" . $service . "\">" . $service . "</a>\n";
         echo "<ul>\n";
         
         foreach ($instances["clearnet"] as $instance)
@@ -125,7 +125,7 @@ function print_frontpage($config)
             echo "<li><a href=\"" . $instance[0] . "\">" . $instance[0] . "</a></li>\n";
         }
 
-        echo "</ul>\n";
+        echo "</ul>\n</li>\n";
     }
 }
 
@@ -194,13 +194,13 @@ if($param)
 <body>
     <div id="main">
         <div id="header">
-            <img src="https://bakadesign.dk/backoffice/wp-content/uploads/2019/10/Star-of-Chaos-02.svg">
+            <img alt="" src="https://bakadesign.dk/backoffice/wp-content/uploads/2019/10/Star-of-Chaos-02.svg">
 
             <h1>Tzeentch</h1>
             <h3>"Changer of Ways, Great Mutator, Lord of Entropy"</h3>
             <h4>[<a href="https://github.com/thefranke/tzeentch">Github</a>]</h4>
             <hr>
-            <h4><?php echo $last_updated; ?></h3>
+            <h4><?php echo $last_updated; ?></h4>
         </div>
         <ul>
             <?php print_frontpage($config); ?>
