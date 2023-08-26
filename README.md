@@ -44,11 +44,3 @@ If you want to add a new or custom frontend, fetch a copy of `data.json` from th
     "loki": [ ... ]
   }
 ```
-
-## Future enhancements
-
-* Tzeentch currently only supplies clearnet links and should later have options for to supply Tor, non-cloudflare and other types of URLs
-* There are probably unhandled exceptions
-* Check instance health
-* Autodetect frontends from full urls
-* Multi-frontend forwarding support (e.g. Teddit and LibReddit are both frontends for Reddit)
