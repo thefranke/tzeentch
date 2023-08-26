@@ -1187,7 +1187,9 @@
   },
   "tent": {
     "clearnet": [
-      "https://tent.bloatcat.tk"
+      "https://tent.bloatcat.tk",
+      "https://tn.vern.cc/",
+      "https://tent.sny.sh/"
     ],
     "tor": [],
     "i2p": [],
