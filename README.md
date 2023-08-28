@@ -13,7 +13,7 @@ To use it, you will need to set up a redirector add-on for your browser such as 
 As an example, instead of redirecting `reddit.com` to a `libreddit` instance, you instead redirect it to `https://tzeentch-instance/?libreddit/r/subreddit`.
 
 ## Difference to LibRedirect
-[LibRedirect](https://libredirect.github.io/) is a browser add-on that already does most of the work here without the need for another redirector add-on and a webservice like this. However, it does not work on mobile devices (there is a hack for Android, but none for iOS) and it has a fixed scope. In contrast, with **Tzeentch** you can create your own list of frontends and their respective list of instances as soon as you discover them, and simply add them directly to your favorite redirector add-on.
+[LibRedirect](https://libredirect.github.io/) is a browser add-on that already does most of the work here without the need for another redirector add-on and a webservice like this. However, it does not work on mobile devices (there is [a hack for Android](https://mike.sg/2022/07/10/how-to-use-libredirect-on-android/), but none for iOS) and it has a fixed scope of redirects. In contrast, with **Tzeentch** you can create your own list of frontends and their respective list of instances as soon as you discover them, and simply add them directly to your favorite redirector add-on.
 
 ## Difference to Farside.link
 [Farside.link](https://github.com/benbusby/farside) was the inspiration to create **Tzeentch**. The reason for this clone (instead of contributing to Farside) is twofold:
