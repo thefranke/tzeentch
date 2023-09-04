@@ -1196,7 +1196,14 @@
       "https://librarian.pussthecat.org",
       "https://lbry.mutahar.rocks",
       "https://librarian.esmailelbob.xyz",
-      "https://lbry.vern.cc"
+      "https://lbry.vern.cc",
+      "https://lbry.mywire.org",
+      "https://lbry.ooguy.com",
+      "https://lbry.projectsegfau.lt",
+      "https://lbry.ramondia.net",
+      "https://lbry.slipfox.xyz",
+      "https://odysee.owacon.moe",
+      "https://watch.whateveritworks.org"
     ]
   },
   "4get": {
@@ -1215,20 +1222,6 @@
       "https://translate.jae.fi",
       "https://translate.plausibility.cloud",
       "https://translate.projectsegfau.lt"
-    ]
-  },
-  "librarian (discontinued)": {
-    "clearnet": [
-      "https://lbry.mywire.org",
-      "https://lbry.ooguy.com",
-      "https://lbry.projectsegfau.lt",
-      "https://lbry.ramondia.net",
-      "https://lbry.slipfox.xyz",
-      "https://lbry.vern.cc",
-      "https://librarian.esmailelbob.xyz",
-      "https://librarian.pussthecat.org",
-      "https://odysee.owacon.moe",
-      "https://watch.whateveritworks.org"
     ]
   },
   "simpleertube": {
