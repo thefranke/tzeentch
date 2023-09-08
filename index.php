@@ -189,6 +189,18 @@ if($param)
     img {
         width: 120pt;
     }
+    @media (prefers-color-scheme: dark) {
+        html {
+            background-color: #000;
+            color: #99c683;
+        }
+        a:link, a:visited {
+            color: #99c683;   
+        }
+        img {
+            filter:invert();
+        }
+    }
   </style>
 </head>
 <body>
