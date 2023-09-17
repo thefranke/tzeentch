@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 
 /*
@@ -30,10 +29,10 @@ function fetch_json($path)
 {
     $opts = [
         'http' => [
-                'method' => 'GET',
-                'header' => [
-                        'User-Agent: PHP',
-                ]
+            'method' => 'GET',
+            'header' => [
+                'User-Agent: PHP',
+            ]
         ]
     ];
 
@@ -154,6 +153,7 @@ if($param)
     forward_to_random_instance($config, $param);
 
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Tzeentch</title>
