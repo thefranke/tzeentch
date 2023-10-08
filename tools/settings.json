@@ -1,0 +1,134 @@
+{
+  "invidious": {
+    "pattern": "*youtube.com/*"
+  },
+  "piped": {
+    "pattern": "*youtube.com/*"
+  },
+  "pipedmaterial": {
+    "pattern": "*youtube.com/*"
+  },
+  "cloudtube": {
+    "pattern": "*youtube.com/*"
+  },
+  "proxitok": {
+    "pattern": "https://www.tiktok.com/*",
+    "rdrto": "$1"
+  },
+  "nitter": {
+    "pattern": "*twitter.com/*"
+  },
+  "libreddit": {
+    "pattern": "*reddit.com/*"
+  },
+  "teddit": {
+    "pattern": "*reddit.com/*"
+  },
+  "scribe": {
+    "pattern": "*medium.com/*"
+  },
+  "quetre": {
+    "pattern": "*quora.com/*"
+  },
+  "libremdb": {
+    "pattern": "*imdb.com/*"
+  },
+  "lingva": {
+    "pattern": "*translate.google.com/*",
+    "rdrto": ""
+  },
+  "libretranslate": {
+    "pattern": "*translate.google.com/*",
+    "rdrto": ""
+  },
+  "whoogle": {
+    "pattern": "www.google.com/*",
+    "rdrto": "$1"
+  },
+  "librex": {},
+  "rimgo": {
+    "pattern": "*imgur.com/*"
+  },
+  "pixivfe": {},
+  "safetwitch": {
+    "pattern": "*twitch.tv/*"
+  },
+  "breezewiki": {
+    "pattern": "*.fandom.com/wiki/*"
+  },
+  "binternet": {
+    "pattern": "*pinterest.*/search/pins/?*",
+    "rdrto": "search.php?$3"
+  },
+  "privatebin": {},
+  "neuters": {
+    "pattern": "*reuters.com/*"
+  },
+  "ruraldictionary": {
+    "pattern": "*urbandictionary.com/*"
+  },
+  "libmedium": {
+    "pattern": "*medium.com/*"
+  },
+  "dumb": {
+    "pattern": "*genius.com/*"
+  },
+  "anonymousoverflow": {
+    "pattern": "*stackoverflow.com/*"
+  },
+  "wikiless": {
+    "pattern": "*wikipedia.org/*"
+  },
+  "biblioreads": {
+    "pattern": "*goodreads.com/*"
+  },
+  "suds": {
+    "pattern": "*snopes.com/*"
+  },
+  "poketube": {
+    "pattern": "*youtube.com/*"
+  },
+  "gothub": {
+    "pattern": "*github.com/*"
+  },
+  "mikuinvidious": {
+    "pattern": "*bilibili.com/video/*"
+  },
+  "wolfreealpha": {
+    "pattern": "*wolfram.com/*"
+  },
+  "jitsi": {
+    "pattern": "https://meet.jit.si",
+    "rdrto": ""
+  },
+  "bibliogram": {
+    "pattern": "*instagram.com/*"
+  },
+  "simplytranslate": {
+    "pattern": "*translate.google.com/*",
+    "rdrto": ""
+  },
+  "librarian": {
+    "pattern": "*odysee.com/*"
+  },
+  "simpleamazon": {
+    "pattern": "*amazon.*/s*",
+    "rdrto": "s$3&tld=$2"
+  },
+  "eddrit": {
+    "pattern": "*reddit.com/*"
+  },
+  "tent": {
+    "pattern": "https://*.bandcamp.com/*",
+    "rdrto": "/artist.php?name=$1"
+  },
+  "indestructables": {
+    "pattern": "*instructables.com/*"
+  },
+  "twineo": {
+    "pattern": "*twitch.tv/*"
+  },
+  "proxigram": {
+    "pattern": "*instagram.com/*"
+  }
+}
