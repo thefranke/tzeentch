@@ -11,7 +11,7 @@ $params = "";
 $last_updated = "";
 $config = "";
 
-function fetch_param()
+function fetch_param_str()
 {
     $params = $_GET;
     $pstr = "";
@@ -118,18 +118,98 @@ function print_frontpage($config)
         echo "<li><a href=\"?" . $service . "\">" . $service . "</a>\n";
         echo "<ul>\n";
         
-        foreach ($instances["clearnet"] as $instance)
-        {
-            $instance = explode("|", $instance);
-            echo "<li><a href=\"" . $instance[0] . "\">" . $instance[0] . "</a></li>\n";
-        }
+        if (array_key_exists("clearnet", $instances))
+            foreach ($instances["clearnet"] as $instance)
+            {
+                $instance = explode("|", $instance);
+                echo "<li><a href=\"" . $instance[0] . "\">" . $instance[0] . "</a></li>\n";
+            }
 
         echo "</ul>\n</li>\n";
     }
 }
 
+function print_redirector_config($config)
+{
+    if (!$config)
+    {
+        echo "Error: Services configuration could not be loaded";
+        return;
+    }
+
+    $tzeentch_instance = "$_SERVER[REQUEST_SCHEME]://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]";
+
+    foreach($config as $service => $instances)
+    {
+        if (!array_key_exists($service, $_GET))
+            continue;
+
+        if (!array_key_exists("pattern", $config[$service]))
+            continue;
+
+        $pattern = $config[$service]["pattern"];
+        
+        $rdrto = "$2";
+        if (array_key_exists("rdrto", $config[$service]))
+            $rdrto = $config[$service]["rdrto"];
+
+        $example = $pattern;
+        if (array_key_exists("example", $config[$service]))
+            $example = $config[$service]["example"];
+
+        $redirects[] = array(
+            "description"    => $service,
+            "exampleUrl"     => $example,
+            "exampleResult"  => $tzeentch_instance . "?" . $service . "/" . $rdrto,
+            "error"          => null,
+            "includePattern" => $pattern,
+            "excludePattern" => "",
+            "patternDesc"    => "",
+            "redirectUrl"    => $tzeentch_instance . "?" . $service . "/" . $rdrto,
+            "patternType"    => "W",
+            "processMatches" => "noProcessing",
+            "disabled"       => false,
+            "grouped"        => false,
+            "appliesTo"      => array("main_frame")
+        );
+    }
+
+    $c = array(
+        "createdBy" => "Tzeentch - Changer of Ways, Great Mutator, Lord of Entropy",
+        "createdAt" => date("Y-m-d")."T".date("H:i:s")."Z",
+        "redirects" => $redirects
+    );
+
+    header("Content-type: application/json; charset=utf-8");
+    die(json_encode($c));
+}
+
+function print_redirector_config_selection($config)
+{
+    if (!$config)
+    {
+        echo "Error: Services configuration could not be loaded";
+        return;
+    }
+
+    echo "<h3>Select frontends to create configuration for</h3>";
+
+    echo '<form action="" style="width:50%"><input type="hidden" name="_create_config" value="True">';
+
+    foreach($config as $service => $instances)
+    {
+        if (!array_key_exists("pattern", $config[$service]))
+            continue;
+
+        echo '<input type="checkbox" name="'.$service.'" value="True">' . $service . "<br>";
+    }
+
+    echo '<br><input type="submit" value="Create configuration"></form>';
+}
+
 function forward_to_random_instance($config, $param)
 {
+    $param = fetch_param_str();
     $params = explode("/", $param, 2);
     $frontend = $params[0];
     $frontend_param = implode(array_slice($params, 1));
@@ -146,11 +226,17 @@ function forward_to_random_instance($config, $param)
     }
 }
 
-$param = fetch_param();
 load_config();
 
-if($param)
-    forward_to_random_instance($config, $param);
+$params = $_GET;
+if($params)
+{
+    if (array_key_exists("_create_config", $params))
+        print_redirector_config($config);
+
+    else if (!array_key_exists("_redirector_config", $params))
+        forward_to_random_instance($config, array_key_first($params));
+}
 
 ?>
 <!DOCTYPE html>
@@ -210,12 +296,17 @@ if($param)
 
             <h1>Tzeentch</h1>
             <h3>"Changer of Ways, Great Mutator, Lord of Entropy"</h3>
-            <h4>[<a href="https://github.com/thefranke/tzeentch">Github</a>]</h4>
+            <h4>[<a href="https://github.com/thefranke/tzeentch">Github</a>] [<a href="?_redirector_config">Create Redirector config</a>]</h4>
             <hr>
             <h4><?php echo $last_updated; ?></h4>
         </div>
         <ul>
-            <?php print_frontpage($config); ?>
+            <?php
+                if (array_key_exists("_redirector_config", $params))
+                    print_redirector_config_selection($config);
+                else    
+                    print_frontpage($config); 
+            ?>
         </ul>
     </div>
 </body>
