@@ -12,6 +12,11 @@ from boltons.setutils import IndexedSet
 
 data = {}
 
+name_translate = {
+    "redlib": "libreddit",
+    "lingvatranslate": "lingva",
+}
+
 def write_json(filename, data):
     with open(filename, 'w') as outfile:
         json_string = json.dumps(data)
@@ -40,7 +45,10 @@ def get_json(url):
 def merge_instances(frontend, new_instances):
     global data
 
+    # clean up name
     frontend = frontend.lower()
+    frontend = name_translate.get(frontend, frontend)
+
     current_instances = data.get(frontend, {}).get("clearnet", [])
     current_instances = list(IndexedSet(new_instances).union(IndexedSet(current_instances)))
 
@@ -74,10 +82,9 @@ data_json = get_json(url)
 for frontend in data_json:
    new_instances_prot = data_json[frontend]["instances"]
    new_instances = []
-   for n in new_instances_prot: 
-    new_instances.append("https://%s" % (n))
+   for n in new_instances_prot:
+        new_instances.append("https://%s" % (n))
    if " (discontinued)" in frontend: frontend = frontend.split(" ")[0]
-   if frontend == "lingvatranslate": frontend = "lingva"
    merge_instances(frontend, new_instances)
 
 # merge own (libredirect format)
