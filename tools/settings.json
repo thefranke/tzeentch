@@ -130,5 +130,33 @@
   },
   "proxigram": {
     "pattern": "*instagram.com/*"
+  },
+  "hyperpipe": {
+    "pattern": "*music.youtube.com/*"
+  },
+  "beatbump": {
+    "pattern": "*music.youtube.com/*"
+  },
+  "laboratory": {
+    "pattern": "*gitlab.com/*"
+  },
+  "mediathekviewweb": {
+    "pattern": "*ardmediathek.de/*"
+  },
+  "facil": {
+    "pattern": "*maps.google.com/*",
+    "rdrto": ""
+  },
+  "osm": {
+    "pattern": "*maps.google.com/*",
+    "rdrto": ""
+  },
+  "ryd-proxy": {
+    "pattern": "https://www.youtube.com/watch?v=*",
+    "rdrto": "/votes/$1"
+  },
+  "send": {
+    "pattern": "*wetransfer.com/*",
+    "rdrto": ""
   }
 }
