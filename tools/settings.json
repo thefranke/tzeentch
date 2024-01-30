@@ -13,7 +13,7 @@
   },
   "proxitok": {
     "pattern": "https://www.tiktok.com/*",
-    "rdrto": "$1"
+    "rdrto": "/$1"
   },
   "nitter": {
     "pattern": "*twitter.com/*"
@@ -43,7 +43,7 @@
   },
   "whoogle": {
     "pattern": "www.google.com/*",
-    "rdrto": "$1"
+    "rdrto": "/$1"
   },
   "librex": {},
   "rimgo": {
@@ -58,7 +58,7 @@
   },
   "binternet": {
     "pattern": "*pinterest.*/search/pins/?*",
-    "rdrto": "search.php?$3"
+    "rdrto": "/search.php?$3"
   },
   "privatebin": {},
   "neuters": {
@@ -113,7 +113,7 @@
   },
   "simpleamazon": {
     "pattern": "*amazon.*/s*",
-    "rdrto": "s$3&tld=$2"
+    "rdrto": "/s$3&tld=$2"
   },
   "eddrit": {
     "pattern": "*reddit.com/*"
@@ -158,5 +158,9 @@
   "send": {
     "pattern": "*wetransfer.com/*",
     "rdrto": ""
+  },
+  "priviblur": {
+    "pattern": "https://*.tumblr.com/*",
+    "rdrto": "/$1/$2"
   }
 }

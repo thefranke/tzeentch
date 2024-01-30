@@ -157,15 +157,21 @@ function print_redirector_config($config)
         if (array_key_exists("example", $config[$service]))
             $example = $config[$service]["example"];
 
+        $rdrUrl = $tzeentch_instance . "?" . $service;
+        if ($rdrto != "")
+            $rdrUrl = $rdrUrl . "$rdrto";
+        else
+            $rdrUrl = $rdrUrl . "/";
+
         $redirects[] = array(
             "description"    => $service,
             "exampleUrl"     => $example,
-            "exampleResult"  => $tzeentch_instance . "?" . $service . "/" . $rdrto,
+            "exampleResult"  => $rdrUrl,
             "error"          => null,
             "includePattern" => $pattern,
             "excludePattern" => "",
             "patternDesc"    => "",
-            "redirectUrl"    => $tzeentch_instance . "?" . $service . "/" . $rdrto,
+            "redirectUrl"    => $rdrUrl,
             "patternType"    => "W",
             "processMatches" => "noProcessing",
             "disabled"       => false,
