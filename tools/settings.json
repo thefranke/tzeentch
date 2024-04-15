@@ -167,8 +167,8 @@
     "pattern": "*knowyourmeme.com/*"
   },
   "tubo": {
-    "pattern": "https://soundcloud.com/*",
-    "rdrto": "stream?url=https://soundcloud.com/$1"
+    "pattern": "https://soundcloud.com/*/*",
+    "rdrto": "stream?url=https://soundcloud.com/$1/$2"
   },
   "mozhi": {
     "pattern": "*translate.google.com/*",
