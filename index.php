@@ -159,7 +159,7 @@ function print_redirector_config($config)
 
         $rdrUrl = $tzeentch_instance . "?" . $service;
         if ($rdrto != "")
-            $rdrUrl = $rdrUrl . "$rdrto";
+            $rdrUrl = $rdrUrl . "/" . "$rdrto";
         else
             $rdrUrl = $rdrUrl . "/";
 
@@ -290,7 +290,7 @@ if($params)
             color: #99c683;   
         }
         img {
-            filter:invert();
+            filter:invert(1);
         }
     }
   </style>
