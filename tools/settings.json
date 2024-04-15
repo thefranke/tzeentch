@@ -165,5 +165,9 @@
   },
   "meme": {
     "pattern": "*knowyourmeme.com/*"
+  },
+  "tubo": {
+    "pattern": "https://soundcloud.com/*",
+    "rdrto": "stream?url=https://soundcloud.com/$1"
   }
 }
