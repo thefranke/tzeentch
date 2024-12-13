@@ -298,7 +298,7 @@ if($params)
 <body>
     <div id="main">
         <div id="header">
-            <img alt="" src="https://bakadesign.dk/backoffice/wp-content/uploads/2019/10/Star-of-Chaos-02.svg">
+            <img alt="" src="https://raw.githubusercontent.com/Warhammer40kGroup/wh40k-icon/c857da1962ca34fc0a135814e6f0fbd57a2babc6/src/svgs/tzeentch-icon-01.svg">
 
             <h1>Tzeentch</h1>
             <h3>"Changer of Ways, Great Mutator, Lord of Entropy"</h3>
