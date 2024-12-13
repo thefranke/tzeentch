@@ -11,6 +11,9 @@
   "cloudtube": {
     "pattern": "*youtube.com/*"
   },
+  "materialious": {
+    "pattern": "*youtube.com/*"
+  },
   "proxitok": {
     "pattern": "https://www.tiktok.com/*",
     "rdrto": "/$1"
@@ -173,5 +176,8 @@
   "mozhi": {
     "pattern": "*translate.google.com/*",
     "rdrto": ""
+  },
+  "skunkyart": {
+    "pattern": "*deviantart.com/*"
   }
 }
