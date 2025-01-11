@@ -249,6 +249,8 @@ if($params)
 <html lang="en">
 <head>
   <title>Tzeentch</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/Warhammer40kGroup/wh40k-icon/refs/heads/master/src/svgs/tzeentch-icon-01.svg">
   <style>
     html {
       font-family: monospace;
@@ -298,7 +300,7 @@ if($params)
 <body>
     <div id="main">
         <div id="header">
-            <img alt="" src="https://raw.githubusercontent.com/Warhammer40kGroup/wh40k-icon/c857da1962ca34fc0a135814e6f0fbd57a2babc6/src/svgs/tzeentch-icon-01.svg">
+            <img alt="" src="https://raw.githubusercontent.com/Warhammer40kGroup/wh40k-icon/refs/heads/master/src/svgs/tzeentch-icon-01.svg">
 
             <h1>Tzeentch</h1>
             <h3>"Changer of Ways, Great Mutator, Lord of Entropy"</h3>
