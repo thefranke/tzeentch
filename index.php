@@ -107,7 +107,7 @@ function show_frontpage($config)
 {
     if (!$config)
     {
-        echo "Error: Services configuration could not be loaded";
+        print("Error: Services configuration could not be loaded");
         return;
     }
 
@@ -115,17 +115,21 @@ function show_frontpage($config)
     {
         $service = strtolower($service);
 
-        echo "<li><a href=\"?" . $service . "\">" . $service . "</a>\n";
-        echo "<ul>\n";
+        print('
+            <li><a href="?' . $service . '">' . $service . '</a>');
+        print('
+            <ul>');
         
         if (array_key_exists("clearnet", $instances))
             foreach ($instances["clearnet"] as $instance)
             {
                 $instance = explode("|", $instance);
-                echo "<li><a href=\"" . $instance[0] . "\">" . $instance[0] . "</a></li>\n";
+                print('
+                <li><a href="' . $instance[0] . '">' . $instance[0] . '</a></li>');
             }
 
-        echo "</ul>\n</li>\n";
+        print('
+            </ul>');
     }
 }
 
@@ -133,7 +137,7 @@ function show_redirector_config($config)
 {
     if (!$config)
     {
-        echo "Error: Services configuration could not be loaded";
+        print("Error: Services configuration could not be loaded");
         return;
     }
 
@@ -194,23 +198,23 @@ function show_redirector_config_selection($config)
 {
     if (!$config)
     {
-        echo "Error: Services configuration could not be loaded";
+        print("Error: Services configuration could not be loaded");
         return;
     }
 
-    echo "<h3>Select frontends to create configuration for</h3>";
+    print("<h3>Select frontends to create configuration for</h3>");
 
-    echo '<form action="" style="width:50%"><input type="hidden" name="_create_config" value="True">';
+    print('<form action="" style="width:50%"><input type="hidden" name="_create_config" value="True">');
 
     foreach($config as $service => $instances)
     {
         if (!array_key_exists("pattern", $config[$service]))
             continue;
 
-        echo '<input type="checkbox" name="'.$service.'" value="True">' . $service . "<br>";
+        print('<input type="checkbox" name="'.$service.'" value="True">' . $service . "<br>");
     }
 
-    echo '<br><input type="submit" value="Create configuration"></form>';
+    print('<br><input type="submit" value="Create configuration"></form>');
 }
 
 function forward_to_random_instance($config, $param)
@@ -306,17 +310,19 @@ if($params)
             <h3>"Changer of Ways, Great Mutator, Lord of Entropy"</h3>
             <h4>[<a href="https://github.com/thefranke/tzeentch">Github</a>] [<a href="?_redirector_config">Create Redirector config</a>]</h4>
             <hr>
-            <h4><?php echo $last_updated; ?></h4>
-        </div>
-        <ul>
-        </ul>
-    </div>
-</body>
-
                 <?php
                     if (array_key_exists("_redirector_config", $params))
                         show_redirector_config_selection($config);
                     else    
                         show_frontpage($config); 
                 ?>
+
+            </ul>
+        </section>
+        <hr>
+        <section>
+            <h2>Instance info</h2>
+            <p><?php print($last_updated); ?></p>
+        </section>
+    </body>
 </html>
