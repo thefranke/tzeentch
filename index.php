@@ -251,65 +251,76 @@ if($params)
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Tzeentch</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link rel="shortcut icon" href="https://raw.githubusercontent.com/Warhammer40kGroup/wh40k-icon/refs/heads/master/src/svgs/tzeentch-icon-01.svg">
-  <style>
-    html {
-      font-family: monospace;
-      font-size: 16px;
-      color: #66397C;
-      text-align: center;
-    }
-    #main {
-      text-align: left;
-      margin: auto;
-      min-width: 500px;
-      display: inline-block;
-    }
-    hr {
-      border: 1px dashed;
-    }
-    a:link, a:visited {
-      color: #66397C;
-    }
-    ul {
-      margin: 10px;
-    }
-    #header {
-        text-align: center;
-        margin: 40pt;
-    }
-    h1, h2, h3, h4 {
-        margin: 5pt;
-    }
-    img {
-        width: 120pt;
-    }
-    @media (prefers-color-scheme: dark) {
-        html {
-            background-color: #000;
-            color: #99c683;
-        }
-        a:link, a:visited {
-            color: #99c683;   
-        }
-        img {
-            filter:invert(1);
-        }
-    }
-  </style>
-</head>
-<body>
-    <div id="main">
-        <div id="header">
+    <head>
+        <title>Tzeentch</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/Warhammer40kGroup/wh40k-icon/refs/heads/master/src/svgs/tzeentch-icon-01.svg">
+        <style>
+            html {
+                font-family: monospace;
+                font-size: 12pt;
+                color: #66397C;
+                text-align: center;
+                margin: auto;
+                max-width: 50%;
+                min-width: 500px;
+            }
+            hr {
+                border: 1px dashed;
+                margin: 15pt;
+            }
+            a:link, a:visited {
+                color: #66397C;
+            }
+            h1 {
+                font-size: 24pt;
+            }
+            section {
+                margin-bottom: 24pt;
+            }
+            section:first-child {
+                margin-top: 40pt;
+            }
+            h1, h2, h3, h4, ol, ul {
+                margin: 5pt;
+            }
+            img {
+                width: 120pt;
+            }
+            ol, ul {
+                text-align: left;
+            }
+            li {
+                width: 100%;
+                list-style-position:inside;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;   
+            }
+            @media (prefers-color-scheme: dark) {
+                html {
+                    background-color: #000;
+                    color: #99c683;
+                }
+                a:link, a:visited {
+                    color: #99c683;
+                }
+                img {
+                    filter:invert(1);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <section>
             <img alt="" src="https://raw.githubusercontent.com/Warhammer40kGroup/wh40k-icon/refs/heads/master/src/svgs/tzeentch-icon-01.svg">
-
             <h1>Tzeentch</h1>
             <h3>"Changer of Ways, Great Mutator, Lord of Entropy"</h3>
-            <h4>[<a href="https://github.com/thefranke/tzeentch">Github</a>] [<a href="?_redirector_config">Create Redirector config</a>]</h4>
+            <h3>[<a href="https://github.com/thefranke/tzeentch">Github</a>] [<a href="?_redirector_config">Create Redirector config</a>]</h3>
             <hr>
+        </section>
+        <section>
+            <ul>
                 <?php
                     if (array_key_exists("_redirector_config", $params))
                         show_redirector_config_selection($config);
