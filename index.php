@@ -103,7 +103,7 @@ function load_config()
     }
 }
 
-function print_frontpage($config)
+function show_frontpage($config)
 {
     if (!$config)
     {
@@ -129,7 +129,7 @@ function print_frontpage($config)
     }
 }
 
-function print_redirector_config($config)
+function show_redirector_config($config)
 {
     if (!$config)
     {
@@ -190,7 +190,7 @@ function print_redirector_config($config)
     die(json_encode($c));
 }
 
-function print_redirector_config_selection($config)
+function show_redirector_config_selection($config)
 {
     if (!$config)
     {
@@ -238,7 +238,7 @@ $params = $_GET;
 if($params)
 {
     if (array_key_exists("_create_config", $params))
-        print_redirector_config($config);
+        show_redirector_config($config);
 
     else if (!array_key_exists("_redirector_config", $params))
         forward_to_random_instance($config, array_key_first($params));
@@ -309,14 +309,14 @@ if($params)
             <h4><?php echo $last_updated; ?></h4>
         </div>
         <ul>
-            <?php
-                if (array_key_exists("_redirector_config", $params))
-                    print_redirector_config_selection($config);
-                else    
-                    print_frontpage($config); 
-            ?>
         </ul>
     </div>
 </body>
 
+                <?php
+                    if (array_key_exists("_redirector_config", $params))
+                        show_redirector_config_selection($config);
+                    else    
+                        show_frontpage($config); 
+                ?>
 </html>
