@@ -110,6 +110,9 @@ function show_frontpage($config)
         print("Error: Services configuration could not be loaded");
         return;
     }
+    print('
+        <h2>Frontends</h2>
+        <ul>');
 
     foreach($config as $service => $instances)
     {
@@ -131,6 +134,9 @@ function show_frontpage($config)
         print('
             </ul>');
     }
+
+    print('
+        </ul>');
 }
 
 function show_redirector_config($config)
@@ -320,15 +326,12 @@ if($params)
             <hr>
         </section>
         <section>
-            <ul>
-                <?php
-                    if (array_key_exists("_redirector_config", $params))
-                        show_redirector_config_selection($config);
-                    else    
-                        show_frontpage($config); 
-                ?>
-
-            </ul>
+            <?php
+                if (array_key_exists("_redirector_config", $params))
+                    show_redirector_config_selection($config);
+                else    
+                    show_frontpage($config); 
+            ?>
         </section>
         <hr>
         <section>
