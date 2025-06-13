@@ -204,23 +204,30 @@ function show_redirector_config_selection($config)
 {
     if (!$config)
     {
-        print("Error: Services configuration could not be loaded");
+        print('Error: Services configuration could not be loaded');
         return;
     }
 
-    print("<h3>Select frontends to create configuration for</h3>");
+    print('
+        <h3>Select frontends to create configuration for</h3>');
 
-    print('<form action="" style="width:50%"><input type="hidden" name="_create_config" value="True">');
+    print('
+        <form action="?" style="width:50%">
+            <input type="hidden" name="_create_config" value="True">');
 
     foreach($config as $service => $instances)
     {
         if (!array_key_exists("pattern", $config[$service]))
             continue;
 
-        print('<input type="checkbox" name="'.$service.'" value="True">' . $service . "<br>");
+        print('
+            <input type="checkbox" name="'.$service.'" value="True">' . $service . '<br>');
     }
 
-    print('<br><input type="submit" value="Create configuration"></form>');
+    print('
+        <br>
+        <input type="submit" value="Create configuration">
+        </form>');
 }
 
 function forward_to_random_instance($config, $param)
