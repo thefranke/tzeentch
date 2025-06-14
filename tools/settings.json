@@ -179,5 +179,8 @@
   },
   "skunkyart": {
     "pattern": "*deviantart.com/*"
+  },
+  "soundcloak": {
+    "pattern": "https://soundcloud.com/*/*"
   }
 }
