@@ -212,7 +212,7 @@ function show_redirector_config_selection($config)
         <h3>Select frontends to create configuration for</h3>');
 
     print('
-        <form action="?" style="width:50%">
+        <form action="?">
             <input type="hidden" name="_create_config" value="True">');
 
     foreach($config as $service => $instances)
@@ -220,12 +220,10 @@ function show_redirector_config_selection($config)
         if (!array_key_exists("pattern", $config[$service]))
             continue;
 
-        print('
-            <input type="checkbox" name="'.$service.'" value="True">' . $service . '<br>');
+        print('<span><input type="checkbox" name="' . $service . '" value="True"> <a href="?' . $service . '">' . $service . '</a></span>');
     }
 
     print('
-        <br>
         <input type="submit" value="Create configuration">
         </form>');
 }
@@ -271,67 +269,115 @@ if($params)
         <style>
             html {
                 font-family: monospace;
-                font-size: 12pt;
-                color: #66397C;
+                font-size: 14pt;
+                color: #111;
+                background-color: #eee;
                 text-align: center;
+            }
+            form {
+                width: max-content;
                 margin: auto;
-                max-width: 50%;
-                min-width: 500px;
+                margin-top: 1em;
             }
-            hr {
-                border: 1px dashed;
-                margin: 15pt;
+            form span {
+                display: block;
+                text-align: left;
+                margin-bottom: 0.2em;
             }
-            a:link, a:visited {
-                color: #66397C;
+            input {
+                margin: auto;
+                font-size: 1.6em;
+            }
+            input:last-child {
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+            h1, h2, a {
+                color: #17c;
             }
             h1 {
-                font-size: 24pt;
+                font-size: 2em;
             }
-            section {
-                margin-bottom: 24pt;
+            h2 {
+                font-size: 1.6em;
             }
-            section:first-child {
-                margin-top: 40pt;
+            h3 {
+                font-size: 1.2em;
             }
-            h1, h2, h3, h4, ol, ul {
-                margin: 5pt;
+            section, header, footer {
+                margin: auto;
+                width: 50%;
+                border-top: dashed 1px gray;
+                padding-top: 1em;
+                padding-bottom: 1em;
+                text-align: center;
+                overflow: auto;
             }
-            img {
-                width: 120pt;
+            header {
+                text-align: center;
+                border: 0px;
+                padding-top: 50pt;
+            }
+            header img {
+                border-radius: 10%;
+                width: 10em;
+            }
+            h1, h2, h3, h4 {
+                margin-top: 5pt;
+                margin-bottom: 5pt;
             }
             ol, ul {
                 text-align: left;
+                list-style-type: disc;
+                list-style-position: inside;
             }
             li {
                 width: 100%;
-                list-style-position:inside;
                 white-space: nowrap;
                 overflow: hidden;
-                text-overflow: ellipsis;   
+                text-overflow: ellipsis;
+            }
+            img:not([src$='.svg']) {              
+                border-radius: 10%;
             }
             @media (prefers-color-scheme: dark) {
                 html {
-                    background-color: #000;
-                    color: #99c683;
+                    background: #111;
+                    color: #eee;
                 }
-                a:link, a:visited {
-                    color: #99c683;
+                h1, h2, a {
+                    color: #f93;
                 }
-                img {
-                    filter:invert(1);
+                form, 
+                img[src$='.svg'] {
+                    filter: invert(1) !important;
+                }
+                form a {
+                    color: #17c;
+                }
+            }
+            @media only screen and (min-resolution: 3dppx) {
+                html {
+                    font-size: 36pt;
+                }
+                li {
+                    margin-bottom: 5pt;
+                }
+            }
+            @media only screen and (orientation: portrait) { 
+                section, header, footer {
+                    width: 95%;
                 }
             }
         </style>
     </head>
     <body>
-        <section>
+        <header>
             <img alt="" src="https://raw.githubusercontent.com/Warhammer40kGroup/wh40k-icon/refs/heads/master/src/svgs/tzeentch-icon-01.svg">
             <h1>Tzeentch</h1>
             <h3>"Changer of Ways, Great Mutator, Lord of Entropy"</h3>
             <h3>[<a href="https://github.com/thefranke/tzeentch">Github</a>] [<a href="?_redirector_config">Create Redirector config</a>]</h3>
-            <hr>
-        </section>
+        </header>
         <section>
             <?php
                 if (array_key_exists("_redirector_config", $params))
@@ -340,10 +386,9 @@ if($params)
                     show_frontpage($config); 
             ?>
         </section>
-        <hr>
-        <section>
+        <footer>
             <h2>Instance info</h2>
             <p><?php print($last_updated); ?></p>
-        </section>
+        </footer>
     </body>
 </html>
