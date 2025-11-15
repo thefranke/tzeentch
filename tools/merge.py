@@ -55,6 +55,8 @@ def merge_instances(frontend, new_instances):
     clean_instances = []
     for c in current_instances:
         if ".onion" in c: continue
+        if "\\" in c: continue
+        if ">" in c: continue
         clean_instances.append(c)
 
     if not frontend in data: data[frontend] = {}
