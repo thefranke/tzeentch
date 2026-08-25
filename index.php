@@ -119,7 +119,7 @@ function show_frontpage($config)
         $service = strtolower($service);
 
         print('
-            <li><a href="?' . $service . '">' . $service . '</a>');
+            <li><a id="' . $service . '" href="?' . $service . '">' . $service . '</a>');
         print('
             <ul>');
         
