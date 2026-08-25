@@ -48,22 +48,20 @@
     "pattern": "www.google.com/*",
     "rdrto": "/$1"
   },
-  "librex": {},
   "rimgo": {
     "pattern": "*imgur.com/*"
   },
-  "pixivfe": {},
   "safetwitch": {
     "pattern": "*twitch.tv/*"
   },
   "breezewiki": {
-    "pattern": "*.fandom.com/wiki/*"
+    "pattern": "*.fandom.com/wiki/*",
+    "rdrto": "/$1/wiki/$2"
   },
   "binternet": {
     "pattern": "*pinterest.*/search/pins/?*",
     "rdrto": "/search.php?$3"
   },
-  "privatebin": {},
   "neuters": {
     "pattern": "*reuters.com/*"
   },
@@ -182,5 +180,45 @@
   },
   "soundcloak": {
     "pattern": "https://soundcloud.com/*/*"
-  }
+  },
+  "kittygram": {
+    "pattern": "*instagram.com/*"
+  },
+  "mezzo": {
+    "pattern": "*tenor.com/*"
+  },
+  "litexiv": {
+    "pattern": "*pixiv.net/*"
+  },
+  "vixipy": {
+    "pattern": "*pixiv.net/*"
+  },
+  "pixivfe": {
+    "pattern": "*pixiv.net/*"
+  },
+  "phantom": {
+    "pattern": "*.fandom.com/wiki/*",
+    "rdrto": "/$1/wiki/$2"
+  }, 
+  "poke": {
+    "pattern": "*youtube.com/*"
+  },
+  "koub": {
+    "pattern": "*coub.com/*"
+  },
+  "simplytranslatelegacy": {
+    "pattern": "*translate.google.com/*",
+    "rdrto": ""
+  },
+  "translite": {
+    "pattern": "*translate.google.com/*",
+    "rdrto": ""
+  },
+
+  "4get": {},
+  "searx": {},
+  "searxng": {},
+  "librey": {},
+  "librex": {},
+  "privatebin": {}
 }
