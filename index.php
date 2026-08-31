@@ -116,6 +116,9 @@ function show_frontpage($config)
 
     foreach($config as $service => $instances)
     {
+        if (count($instances["clearnet"]) == 0) 
+            continue;
+
         $service = strtolower($service);
 
         print('
